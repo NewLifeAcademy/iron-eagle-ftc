@@ -6,6 +6,6 @@ int side = Controller.Axis4.position(vex::percent);
 int forward = (right + left) * 0.5;
 
 frontRight.spin(vex::forward, right - side, vex::percent);
-frontLeft.spin(vex::forward,  left  + side, vex::percent);
-backRight.spin(vex::forward,  right + side, vex::percent);
-backLeft.spin(vex::forward,   left  - side, vex::percent);
+frontLeft.spin(vex::forward, left + side, vex::percent);
+backRight.spin(vex::forward, right + side, vex::percent);
+backLeft.spin(vex::forward, left - side, vex::percent);
