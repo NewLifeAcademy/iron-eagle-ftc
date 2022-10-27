@@ -7,7 +7,7 @@ int turn = Controller.Axis1.position(vex::percent);
 
 // Again-- needs to be adjusted for configured and assigned names
 
-frontRight.spin(vex::forward, forward - sideways + turn, vex::percent);
-frontLeft.spin(vex::forward, forward + sideways - turn, vex::percent);
-backRight.spin(vex::forward, forward + sideways + turn, vex::percent);
-backLeft.spin(vex::forward, forward - sideways - turn, vex::percent);
+rightFrontDrive.spin(vex::forward, forward - sideways + turn, vex::percent);
+leftFrontDrive.spin(vex::forward, forward + sideways - turn, vex::percent);
+rightRearDrive.spin(vex::forward, forward + sideways + turn, vex::percent);
+leftRearDrive.spin(vex::forward, forward - sideways - turn, vex::percent);
