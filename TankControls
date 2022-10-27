@@ -1,3 +1,5 @@
+// Needs to be adjusted for configured and assigned names
+
 int left = Controller.Axis3.position(vex::percent);
 int right = Controller.Axis2.position(vex::percent);
 int side = Controller.Axis4.position(vex::percent);
