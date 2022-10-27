@@ -6,7 +6,7 @@ final double rfrontmove = r * Math.sin(robotAngle) - rightX;
 final double lBackMove = r * Math.sin(robotAngle) + rightX;
 final double rBackMove = r * Math.cos(robotAngle) - rightX;
 
-frontLeft.setPower(lFrontMove);
-frontRight.setPower(rFrontMove);
-backLeft.setPower(lBackMove)
-backRight.setPower(rBackMove);
+leftFrontDrive.setPower(lFrontMove);
+rightFrontDrive.setPower(rFrontMove);
+leftRearDrive.setPower(lBackMove)
+rightRearDrive.setPower(rBackMove);
