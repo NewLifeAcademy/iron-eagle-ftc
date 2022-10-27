@@ -1,0 +1,12 @@
+double r = Math.hypot(gamepad1.left_stick_x, gamepad1.left_stick_y);
+double robotAngle = Math.atan2(gamepad1.left_stick_y, gamepad1.left_stick_x) - Math.PI / 4;
+double rightX = gamepad1.right_stick_x;
+final double lfrontmove = r * Math.cos(robotAngle) + rightX;
+final double rfrontmove = r * Math.sin(robotAngle) - rightX;
+final double lBackMove = r * Math.sin(robotAngle) + rightX;
+final double rBackMove = r * Math.cos(robotAngle) - rightX;
+
+frontLeft.setPower(lFrontMove);
+frontRight.setPower(rFrontMove);
+backLeft.setPower(lBackMove)
+backRight.setPower(rBackMove);
