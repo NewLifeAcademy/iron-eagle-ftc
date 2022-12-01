@@ -9,15 +9,16 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-@TeleOp(name = "IronEagleB2022_01 (Blocks to Java)")
-public class IronEagleB2022_01 extends LinearOpMode {
+@TeleOp(name = "IronEagleB2022_012 (Blocks to Java)")
+public class IronEagleB2022_012 extends LinearOpMode {
 
   private DcMotor left_front_motor;
   private DcMotor left_back_motor;
   private DcMotor lift_motor_1;
   private DcMotor lift_motor_2;
-  private DcMotor right_back_motor;
   private Servo claw_servo_1;
+  private DcMotor right_back_motor;
+  private DcMotor claw_motor_1;
   private DistanceSensor colorSensor1_DistanceSensor;
   private ColorSensor colorSensor1;
   private DcMotor right_front_motor;
@@ -39,8 +40,9 @@ public class IronEagleB2022_01 extends LinearOpMode {
     left_back_motor = hardwareMap.get(DcMotor.class, "left_back_motor");
     lift_motor_1 = hardwareMap.get(DcMotor.class, "lift_motor_1");
     lift_motor_2 = hardwareMap.get(DcMotor.class, "lift_motor_2");
-    right_back_motor = hardwareMap.get(DcMotor.class, "right_back_motor");
     claw_servo_1 = hardwareMap.get(Servo.class, "claw_servo_1");
+    right_back_motor = hardwareMap.get(DcMotor.class, "right_back_motor");
+    claw_motor_1 = hardwareMap.get(DcMotor.class, "claw_motor_1");
     colorSensor1_DistanceSensor = hardwareMap.get(DistanceSensor.class, "colorSensor1");
     colorSensor1 = hardwareMap.get(ColorSensor.class, "colorSensor1");
     right_front_motor = hardwareMap.get(DcMotor.class, "right_front_motor");
@@ -62,6 +64,7 @@ public class IronEagleB2022_01 extends LinearOpMode {
     // In this example, the right motor was reversed so that positive
     // applied power makes it move the robot in the forward direction.
     lift_motor_2.setDirection(DcMotorSimple.Direction.REVERSE);
+    claw_servo_1.setPosition(0.5);
     drivePercentage = 80;
     liftPercentage = 100;
     waitForStart();
@@ -80,10 +83,20 @@ public class IronEagleB2022_01 extends LinearOpMode {
         telemetry.addData("Lift Pow", liftPower);
         // Operate Claw
         if (gamepad2.a) {
-          claw_servo_1.setPosition(0);
+          claw_servo_1.setPosition(0.8);
+          telemetry.addData("Claw Servo to Position", "1");
         }
         if (gamepad2.b) {
-          claw_servo_1.setPosition(0.3);
+          claw_servo_1.setPosition(0.2);
+          telemetry.addData("Claw Servo to Position", "0");
+        }
+        if (gamepad2.y) {
+          claw_motor_1.setPower(0.3);
+          telemetry.addData("Claw Motor to Position", "0");
+        }
+        if (gamepad2.x) {
+          claw_motor_1.setPower(-0.3);
+          telemetry.addData("Claw Motor to Position", "0.3");
         }
         // Sensor Data Testing
         colorSensorDistance = colorSensor1_DistanceSensor.getDistance(DistanceUnit.CM);
